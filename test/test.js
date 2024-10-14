@@ -1,13 +1,8 @@
 // Import dependencies
 const aOtcMarket = artifacts.require("OtcMarket");
-const { assert } = require("chai");
 
 contract("OtcMarket", (accounts) => {
   let otcMarketInstance;
-
-  // Pre-defined constants
-  const bEid = 1; // Example bEid, replace with your actual test data
-  const GAS_CREATE_OFFER = 500000; // Replace with appropriate gas limit
 
   before(async () => {
     // Deploy the OTC Market contract instance
@@ -17,16 +12,8 @@ contract("OtcMarket", (accounts) => {
   it("should set enforced options correctly", async () => {
     // Prepare the EnforcedOptionParam data
     const enforcedOptionsArray = [
-      {
-        // bEid parameter
-        bEid: bEid,
 
-        // OfferCreated message type, replace if needed
-        messageType: 1,
-
-        // OptionsBuilder configuration
-        options: "0x0003010021010000000000000000000000000098968000000000000000000000000000e4e1c0"
-      },
+      [40245,0,"0x00"]
     ];
 
     // Call the function to set enforced options
